@@ -1,8 +1,16 @@
-import { getHTML, getGenres } from './lib/scraper';
+import express from 'express';
+import { getGenres } from './lib/scraper';
 
-async function go() {
-  //   getGenres(await getHTML('http://everynoise.com/'));
-  getGenres(await getHTML('http://everynoise.com/everynoise1d.cgi?scope=all'));
-}
+const app = express();
 
-go();
+app.get('/scrape', async (req, res, next) => {
+  console.log('Scraping!');
+  let genres = await getGenres(
+    'http://everynoise.com/everynoise1d.cgi?scope=all'
+  );
+  res.json(genres);
+});
+
+app.listen(3006, () => {
+  console.log(`running on port 3006`);
+});
