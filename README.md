@@ -1,6 +1,6 @@
 # genreScraper
 
-This simple scraper pulls all the genres from http://everynoise.com/everynoise1d.cgi?scope=all and the URL of the Spotify Playlist they are associated with.  After pulling the data, it writes it locally in json format and looks like this:
+This simple scraper pulls all the genres from http://everynoise.com/everynoise1d.cgi?scope=all and the URL of the Spotify Playlist they are associated with.  After pulling the data, it writes it locally to a db in json format and looks like this:
 ```
 {
     "date": 1613256344278,
@@ -18,16 +18,6 @@ This simple scraper pulls all the genres from http://everynoise.com/everynoise1d
 ```
 
 The scraping function runs every week on 12:00 AM on Sunday's via node-cron.
-
-
-
-I used:
-Node
-Express
-Cheerio
-Axios
-Nodemon
-Node-cron
 
 
 # How To Run 
